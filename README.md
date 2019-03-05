@@ -59,6 +59,8 @@
 ##### Simple usage Basic: (Without script)
 <details> 
   <summary>How to use PackageMaker for Mac </summary>
+
+ written by Quam Sodj FEV 28 2013
 	
 It’s a very neat tool for systems administrators to use and create packages for OS X.
 
