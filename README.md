@@ -33,7 +33,7 @@
 ### Complet with
 - ~/Fix-PackageMaker-APFS/Builder.command
 
-### The script will compile SplitForks and copy it into PackageMaker
+### The script will compile SplitForks and replace it by copying it into PackageMaker
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu537.png)
 
 ### Done!
