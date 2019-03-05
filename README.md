@@ -19,9 +19,10 @@
 - Let’s go developer’s site You will need to have an account, it’s free to create one.
 Once logged in, Download ➣ [Auxilary Tools for Xcode - Late july 2012](https://developer.apple.com/download/more/?name=PackageMaker)
 
-- Move the disk image inside Fix-PackageMaker-APFS folder
-
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu536.png)
+
+- Move the disk image inside Fix-PackageMaker-APFS folder
+![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu538.png)
 
 
 ### Complet with
