@@ -12,7 +12,7 @@
 
 #### You need Xcode and the Command Line tools for the compilation of SlitForks
 
-## Usage:
+## Usage: 
 - cd ~/
 - git clone https://github.com/chris1111/Fix-PackageMaker-APFS.git
 
@@ -21,7 +21,7 @@
 
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu536.png)
 
-- Move the disk image inside Fix-PackageMaker-APFS folder
+### Move the disk image inside Fix-PackageMaker-APFS folder
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu538.png)
 
 
