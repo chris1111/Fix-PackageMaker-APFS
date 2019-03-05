@@ -35,7 +35,7 @@ Once logged in, Download ➣ [Auxilary Tools for Xcode - Late july 2012](https:/
 
 ##### NOTE: You can recreate the process anytime by double-clicking the Builder.command file
 
-- Do not forget to unpair the disk image in the Fix-PackageMaker-APFS folder otherwise the script will abort!
+- Do not forget to move the disk image in the Fix-PackageMaker-APFS folder otherwise the script will abort!
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu538.png)
 
 ##### NOTE: (SlitForks) goldin binarie: ➤ Copyright (c) 2008-2018, Stephane Sudre All rights reserved.
