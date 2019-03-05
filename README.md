@@ -3,6 +3,11 @@
 
 ### A fix for making PackageMaker working in APFS file system
 
+### without the fix it does not preserve resources Forks in APFS File system
+
+![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu540.png)
+
+
 ### Follow every steps in the Video
                        ⟱
                        
