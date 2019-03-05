@@ -17,7 +17,7 @@
 - git clone https://github.com/chris1111/Fix-PackageMaker-APFS.git
 
 - Let’s go developer’s site You will need to have an account, it’s free to create one.
-Once logged in, Download ➣ [Auxilary Tools for Xcode - Late july 2012](https://developer.apple.com/download/more/?name=PackageMaker)
+- Once logged in, Download ➣ [Auxilary Tools for Xcode - Late july 2012](https://developer.apple.com/download/more/?name=PackageMaker)
 
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu536.png)
 
