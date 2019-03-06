@@ -8,6 +8,10 @@
 
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu540.png)
 
+#### PackageMaker is an amazing tool created by Apple, which still works today in macOS Mojave, it was introduced in Mac OS X Panther 10.3 Several versions have been released and the last one was V- 3.0.6 (201)
+- For my part I use it regularly to create all kinds of packages as well as MetaPackages. I have several projects that include programs created by PackageMaker.
+ - I've never really understood why Apple remove it and give up are developement?
+
 
 ### Follow every steps in the Video
                        ⟱
