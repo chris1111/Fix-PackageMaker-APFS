@@ -5,7 +5,7 @@
 - You accept to install the new SlitForks and the Credits.html file in PackageMaker.app 
 - I am not responsible for the changes you will make
 
-### A fix for making PackageMaker working in APFS file system
+### Fix PackageMaker APFS is a fix for making PackageMaker working in APFS file system
 
 ### without the fix it does not preserve resources Forks in APFS File system
 - PackageMaker was designed to run on HFS+J
