@@ -99,13 +99,13 @@ echo " "
 sudo hdiutil attach ./$DiskImage -noverify -nobrowse -mountpoint /Volumes/PackageMaker
 open ~/Fix-PackageMaker-APFS
 cp -r /Volumes/PackageMaker/PackageMaker.app ./
-sudo rm -rf ./PackageMaker.app/Contents/Resources/SplitForks
+rm -rf ./PackageMaker.app/Contents/Resources/SplitForks
 Sleep 1
 hdiutil detach -Force /Volumes/PackageMaker
 Sleep 1
 xcodebuild -project ./SplitForks/SplitForks.xcodeproj -alltargets -configuration Release
-sudo cp -r ./SplitForks/build/release/SplitForks ./PackageMaker.app/Contents/Resources
-sudo cp -r ./Credits.html ./PackageMaker.app/Contents/Resources
+cp -r ./SplitForks/build/release/SplitForks ./PackageMaker.app/Contents/Resources
+cp -r ./Credits.html ./PackageMaker.app/Contents/Resources
 Sleep 1
 echo "
 `tput setaf 7``tput sgr0``tput bold``tput setaf 10`----------------`tput sgr0` `tput setaf 7``tput sgr0`
