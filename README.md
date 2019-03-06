@@ -33,6 +33,7 @@
 
 ## Usage: 
 - cd ~/
+
 git clone https://github.com/chris1111/Fix-PackageMaker-APFS.git
 
 - Let’s go developer’s site You will need to have an account, it’s free to create one.
