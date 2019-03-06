@@ -1,7 +1,7 @@
 # Fix PackageMaker APFS
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/packag10.png)
 
-# By using this script: 
+## By using this script: ↓ 
 - You accept to install the new SlitForks and the Credits.html file in PackageMaker.app 
 - I am not responsible for the changes you will make
 
