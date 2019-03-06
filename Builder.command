@@ -95,11 +95,11 @@ To continue you must enter your password
 
 Enter your password followed by Enter"
 echo "`tput setaf 7``tput sgr0``tput bold``tput setaf 10`-------------------------------------------------------------------`tput sgr0` `tput setaf 7``tput sgr0`"
-sudo rm -rf ./PackageMaker.app/Contents/Resources/SplitForks
 echo " "
-hdiutil attach ./$DiskImage -noverify -nobrowse -mountpoint /Volumes/PackageMaker
+sudo hdiutil attach ./$DiskImage -noverify -nobrowse -mountpoint /Volumes/PackageMaker
 open ~/Fix-PackageMaker-APFS
 cp -r /Volumes/PackageMaker/PackageMaker.app ./
+sudo rm -rf ./PackageMaker.app/Contents/Resources/SplitForks
 Sleep 1
 hdiutil detach -Force /Volumes/PackageMaker
 Sleep 1
