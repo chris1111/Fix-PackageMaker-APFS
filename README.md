@@ -3,7 +3,7 @@
 
 ## By using this script: ↓ 
 - You accept to install the new SlitForks and the Credits.html file in PackageMaker.app 
-- It's you who are going to make this change
+It's you who are going to make this change
 
 ### Fix PackageMaker APFS is a fix for making PackageMaker working in APFS file system
 
