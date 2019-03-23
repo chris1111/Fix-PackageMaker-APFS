@@ -107,6 +107,21 @@ xcodebuild -project ./SplitForks/SplitForks.xcodeproj -alltargets -configuration
 cp -r ./SplitForks/build/release/SplitForks ./PackageMaker.app/Contents/Resources
 cp -r ./Credits.html ./PackageMaker.app/Contents/Resources
 Sleep 1
+
+echo "            `tput setaf 7``tput sgr0``tput bold``tput setaf 10`**********  Setup the new BundleVersion  ***********`tput sgr0` `tput setaf 7``tput sgr0` "
+echo " "
+Sleep 3
+
+/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 307" ./PackageMaker.app/Contents/Info.plist
+
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion 202" ./PackageMaker.app/Contents/Info.plist
+
+/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString 3.0.7" ./PackageMaker.app/Contents/version.plist
+
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion 202" ./PackageMaker.app/Contents/version.plist
+
+/usr/libexec/PlistBuddy -c "Set :SourceVersion 202000000000000" ./PackageMaker.app/Contents/version.plist
+
 echo "
 `tput setaf 7``tput sgr0``tput bold``tput setaf 10`----------------`tput sgr0` `tput setaf 7``tput sgr0`
 Done
