@@ -27,7 +27,7 @@ It's you who are going to make this change
 - : [packagesdev for the Fix in goldin](https://github.com/packagesdev/goldin/blob/1b82322022abc4b43c4e10379614501e1c0d67b0/main.c#L661)
 - : chris1111 fix PackageMaker
 
-![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu533.png)
+![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu556.png)
 
 #### You need Xcode and the Command Line tools for the compilation of SlitForks
 
@@ -48,7 +48,7 @@ It's you who are going to make this change
 - ~/Fix-PackageMaker-APFS/Builder.command
 
 ### The script will compile SplitForks and replace it by copying it into PackageMaker
-![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/screen99.png)
+![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu557.png)
 
 ### Done!
 
