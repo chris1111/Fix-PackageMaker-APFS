@@ -25,7 +25,7 @@ It's you who are going to make this change
 ## Credit:
 - : Apple for PackageMaker.app (Version 3.0.6 (201))
 - : [packagesdev for the Fix in goldin](https://github.com/packagesdev/goldin/blob/1b82322022abc4b43c4e10379614501e1c0d67b0/main.c#L661)
-- : chris1111 fix PackageMaker
+- : chris1111 fix PackageMaker (Version 3.0.7 (202))
 
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu556.png)
 
