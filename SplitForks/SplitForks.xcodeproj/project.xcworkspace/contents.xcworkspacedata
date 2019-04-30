@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SplitForks.xcodeproj">
+      location = "self:/Users/chris/Desktop/SplitForks/SplitForks.xcodeproj">
    </FileRef>
 </Workspace>
