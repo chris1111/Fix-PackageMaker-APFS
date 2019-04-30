@@ -93,7 +93,7 @@ Credits.html file in PackageMaker.app
 
 To continue you must enter your password 
 
-Enter your password followed by Enter"
+Enter your password followed by Enter:"
 echo "`tput setaf 7``tput sgr0``tput bold``tput setaf 10`-------------------------------------------------------------------`tput sgr0` `tput setaf 7``tput sgr0`"
 echo " "
 sudo hdiutil attach ./$DiskImage -noverify -nobrowse -mountpoint /Volumes/PackageMaker
