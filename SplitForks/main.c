@@ -443,7 +443,11 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 		
 		if (strncmp(XATTR_FINDERINFO_NAME, tEntryPtr->extendedAttributeName, sizeof(XATTR_FINDERINFO_NAME)+1)==0 && (inSplitOptions&SPLITOPTION_PRESERVE_EXTENDED_ATTRIBUTES)==SPLITOPTION_PRESERVE_EXTENDED_ATTRIBUTES)
 		{
-			tEntryDataOffset+=30;
+			if (tEntryLength==0)	// Empty/No Finder Info, it will still be 32-byte long.
+				tEntryDataOffset+=ASF_DEFAULT_FINDERINFO_SIZE;
+			
+			if (tExtendedAttributesListHead!=NULL)
+				tEntryDataOffset+=(38);
 			
 			tDataStart=tEntryDataOffset;
 			
@@ -463,6 +467,16 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 				tNode=tNode->next;
 			}
 			
+			// Align on 4-bytes
+			
+			uint32_t tModulo=tDataLength%4;
+			
+			if (tDataLength!=0)
+			{
+				tDataLength+=(4-tModulo);
+				tEntryDataOffset+=(4-tModulo);
+			}
+			
 			tTotalSize=tEntryDataOffset;
 			
 			uint32_t tAttributesDataOffset=tDataStart;
@@ -479,6 +493,8 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 			}
 			
 			tEntryLength=tEntryDataOffset-tEntryOffset;
+			
+			
 		}
 		
 #ifdef __LITTLE_ENDIAN__
@@ -531,9 +547,6 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 	for(uint16_t tIndex=0;tIndex<tEntriesCount;tIndex++)
 	{
 		asf_entry_t * tEntryPtr=tEntriesPtrArray[tIndex];
-		
-		if (tEntryPtr->entrySize==0)
-			continue;
 		
 		switch (tEntryPtr->entryID)
 		{
@@ -851,73 +864,58 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 					
 					// Write Attributes Data
 					
-#define GOLDIN_BUFFER_FOUR_KILOBYTE_SIZE		4096
-					
-					size_t tAttributeBufferSize=GOLDIN_BUFFER_FOUR_KILOBYTE_SIZE;
-					
-					char * tAttributeBuffer=malloc(GOLDIN_BUFFER_FOUR_KILOBYTE_SIZE);
-					
-					while (tAttributeBuffer==NULL && tAttributeBufferSize>1024)		// If we can't even allocate 1KB of RAM, it's time to capitulate
-					{
-						tAttributeBufferSize=tAttributeBufferSize>>1;
-						
-						tAttributeBuffer=malloc(tAttributeBufferSize);
-					}
-					
-					if (tAttributeBuffer==NULL)
-					{
-						logerror("An error occurred because available memory is too low\n");
-						
-						fclose(fp);
-						
-						goto bail;
-					}
+					// We can not stream the reading of the extended attribute as the fgetxattr API only supports the position parameter for the resource fork attribute
 					
 					tNode=tExtendedAttributesListHead;
 					
 					while (tNode!=NULL)
 					{
-						u_int32_t tPosition=0;
-						
 						char * tAttributeName=tNode->entry.extendedAttributeName;
 						
-						do
+						size_t tAttributeBufferSize=(size_t)tNode->entry.entrySize;
+							
+						char * tAttributeBuffer=malloc(tAttributeBufferSize);
+						
+						if (tAttributeBuffer==NULL)
 						{
-							ssize_t tAttributeBufferReadSize=fgetxattr(tFileDescriptor,tAttributeName , tAttributeBuffer, tAttributeBufferSize, tPosition, 0);
+							logerror("An error occurred because the available memory is too low (%.2f MB buffer needed)\n",tAttributeBufferSize/(1024.0*1024));
 							
-							if (tAttributeBufferReadSize==-1)
-							{
-								logerror("An error occurred while reading the \"%s\" attribute (%d)\n",tAttributeName,errno);
-								
-								free(tAttributeBuffer);
-								
-								fclose(fp);
-								
-								goto bail;
-							}
+							fclose(fp);
 							
-							if (fwrite(tAttributeBuffer,tAttributeBufferReadSize,1, fp)!=1)
-							{
-								int tError=ferror(fp);
-								
-								if (tError!=0)
-									log_write_error(errno,inFileHierarchyNode->fts_path);
-								
-								free(tAttributeBuffer);
-								
-								fclose(fp);
-								
-								goto bail;
-							}
-							
-							tPosition+=tAttributeBufferReadSize;
+							goto bail;
 						}
-						while (tPosition<tNode->entry.entrySize);
+						
+						ssize_t tAttributeBufferReadSize=fgetxattr(tFileDescriptor,tAttributeName , tAttributeBuffer, tAttributeBufferSize, 0, 0);
+							
+						if (tAttributeBufferReadSize==-1)
+						{
+							logerror("An error occurred while reading the \"%s\" attribute (%d)\n",tAttributeName,errno);
+							
+							free(tAttributeBuffer);
+							
+							fclose(fp);
+							
+							goto bail;
+						}
+							
+						if (fwrite(tAttributeBuffer,tAttributeBufferReadSize,1, fp)!=1)
+						{
+							int tError=ferror(fp);
+							
+							if (tError!=0)
+								log_write_error(errno,inFileHierarchyNode->fts_path);
+							
+							free(tAttributeBuffer);
+							
+							fclose(fp);
+							
+							goto bail;
+						}
+							
+						free(tAttributeBuffer);
 						
 						tNode=tNode->next;
 					}
-					
-					free(tAttributeBuffer);
 				}
 				
 				break;
@@ -925,6 +923,9 @@ int goldin_splitfork(FTSENT * inFileHierarchyNode,split_options_t inSplitOptions
 				
 			case ASF_RESOURCEFORK:
 			{
+				if (tEntryPtr->entrySize==0)
+					continue;
+				
 #define GOLDIN_BUFFER_QUARTER_MEGABYTE_SIZE		262144
 				
 				size_t tAttributeBufferSize=GOLDIN_BUFFER_QUARTER_MEGABYTE_SIZE;
