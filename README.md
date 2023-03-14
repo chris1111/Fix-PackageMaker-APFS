@@ -35,8 +35,8 @@
 #### You need Xcode and the Command Line tools for the compilation of SlitForks
 
 ## Usage: 
-- cd ~/
-- git clone https://github.com/chris1111/Fix-PackageMaker-APFS.git
+- `cd ~/`
+- `git clone https://github.com/chris1111/Fix-PackageMaker-APFS.git`
 
 - Let’s go developer’s site You will need to have an account, it’s free to create one.
 - Once logged in, Download ➣ [Auxilary Tools for Xcode - Late july 2012](https://developer.apple.com/download/more/?name=PackageMaker)
@@ -48,7 +48,7 @@
 
 
 ### Complet with
-- ~/Fix-PackageMaker-APFS/Builder.command
+- `~/Fix-PackageMaker-APFS/Builder.command`
 
 ### The script will compile SplitForks and replace it by copying it into PackageMaker
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/screen99.png)
