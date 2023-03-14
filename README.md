@@ -20,11 +20,6 @@
  - I've never really understood why Apple remove it and give up are developement?
 
 
-### Follow every steps in the Video
-                       ⟱
-                       
-[![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/video-10.png)](https://youtu.be/J8pTrMUi49E)
-
 ## Credit:
 - : Apple for PackageMaker.app (Version 3.0.6 (201))
 - : [packagesdev for the Fix in goldin](https://github.com/packagesdev/goldin/blob/1b82322022abc4b43c4e10379614501e1c0d67b0/main.c#L661)
@@ -47,7 +42,7 @@
 ![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu538.png)
 
 
-### Complet with
+### Done with
 - `~/Fix-PackageMaker-APFS/Builder.command`
 
 ### The script will compile SplitForks and replace it by copying it into PackageMaker
