@@ -57,7 +57,8 @@
 
 
 - Do not forget to move the disk image in the Fix-PackageMaker-APFS folder otherwise the script will abort!
-![Modular Image Creation](https://i25.servimg.com/u/f25/18/50/18/69/captu539.png)
+![Screenshot 2023-03-14 at 6 53 08 PM](https://user-images.githubusercontent.com/6248794/225159918-23cdaef4-e864-4641-8aaf-cdc7a521ab2c.png)
+
 
 #### NOTE: You can recreate the process anytime by double-clicking the Builder.command file
 
